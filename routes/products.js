@@ -1,20 +1,21 @@
 const {Router} = require("express");
 const Prod = require("../models/productsList");
+const Drinks = require("../models/drinksList");
 const router = Router();
 
 router.get("/", async (req, res) => {
     const pizza = await Prod.find({});
 
     res.render("pages/index.pug",  {title: "Pizza", pizza});
-    console.log(db.stats());
 });
 
 router.get("/contact", (req, res) => {
     res.render("pages/contact",  {title: "Contact"});
 });
 
-router.get("/drinks", (req, res) => {
-    res.render("pages/drinks",  {title: "Напитки"});
+router.get("/drinks", async (req, res) => {
+    const drink = await Drinks.find({});
+    res.render("pages/drinks",  {title: "Напитки", drink});
 });
 
 router.get("/delivery", (req, res) => {
@@ -26,15 +27,25 @@ router.get("/aboutus", (req, res) => {
 });
 
 router.post('/contact', async (req, res) => {
-    const pizza = new Prod({
+    // const pizza = new Prod({
+    //     title: req.body.title,
+    //     description: req.body.description,
+    //     price: req.body.price,
+    //     weight: req.body.weight,
+    //     img: req.body.img
+    // });
+    // await pizza.save();
+
+    const drink = new Drinks({
         title: req.body.title,
         description: req.body.description,
         price: req.body.price,
-        weight: req.body.weight,
+        volume: req.body.weight,
         img: req.body.img
     });
-    await pizza.save();
-    res.redirect("/");
+    await drink.save();
+
+    res.redirect("/drinks");
 });
 
 

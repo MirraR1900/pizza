@@ -1,0 +1,7 @@
+mixin Card(classBox, classImg, valueImg, classname, title, classDescription, consistText, description, classWeight, weightText, weight, classPrice, priceText, price)
+  div(class=classBox)
+    img(class=classImg src=valueImg)
+  p(class=classname)= title 
+  p(class=classDescription)= consistText + description
+  p(class=classWeight)= weightText + weight
+  p(class=classPrice)= priceText + price  + " руб"

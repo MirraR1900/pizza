@@ -2,4 +2,11 @@ extends ../main.pug
 
 block content
   .boxMenuDrinks
-    h2 Drinls
+    each val in drink
+      .card
+         .boxImg
+           img(class="drinkImg" src=val.img alt="")
+         p(class="nameDish")= val.title 
+         p(class="descriptionDish")= "Состав: " + val.description
+         p(class="weightDush")= "Объем: " + val.volume + " л."
+         p(class="priceDish")= "Цена: " + val.price  + " руб" 

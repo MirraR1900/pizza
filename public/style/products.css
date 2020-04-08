@@ -1,4 +1,4 @@
-.boxMenuPizza {
+.boxMenuPizza, .boxMenuDrinks {
     display: grid;
     grid-template-columns: repeat(auto-fill, 400px);
     margin-top: 10px;
@@ -32,4 +32,8 @@
 .pizzaImg {
     width: 380px;
     height: 270px;
+}
+
+.drinkImg {
+    height: 300px;
 }

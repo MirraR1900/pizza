@@ -45,3 +45,7 @@ a {
     width: 40px;
     margin-top: 10px;
 }
+
+.boxMenuDrinks a {
+    color: maroon;
+}
