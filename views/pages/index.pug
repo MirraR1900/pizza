@@ -1,0 +1,14 @@
+extends ../main.pug
+
+block content
+  // (href="../contact") Контакты
+  div.boxMenuPizza
+    each val in pizza
+      .card
+        .boxImg
+          img(class="pizzaImg" src=val.img alt="")
+        p(class="nameDish")= val.title 
+        p(class="descriptionDish")= "Состав: " + val.description
+        p(class="weightDush")= "Вес: " + val.weight
+        p(class="priceDish")= "Цена: " + val.price  + " руб"
+      

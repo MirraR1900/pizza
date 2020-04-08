@@ -1,0 +1,26 @@
+extends ../main.pug
+
+block content
+   form(action="/contact", method="post")  
+    label Title 
+    br
+    input(type="text", name="title") 
+    br
+    label description
+    br
+    input(type="text", name="description") 
+    br
+    label price
+    br
+    input(type="text", name="price") 
+    br
+    label weight
+    br
+    input(type="text", name="weight") 
+    br
+    label img
+    br
+    input(type="text", name="img") 
+    br
+    br
+    button(type="submit" class="btn") Create

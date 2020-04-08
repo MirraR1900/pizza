@@ -1,0 +1,47 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.containerHead {
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr;
+    background: rgb(0, 0, 0);
+}
+span {
+    color: rgb(255, 255, 255);
+}
+.logo {
+    font-size: 20px;
+    /* border: 2px solid magenta; */
+}
+.nav {
+    text-align: center;
+    height: 60px;
+    /* border: 2px solid magenta; */
+}
+
+.menu {
+   font-size: 18px;   
+}
+.menu li {
+    display: inline-block;
+    list-style-type: none;
+    margin: 20px 20px;
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+}
+
+.shoppingBasket {
+    /* border: 2px solid magenta; */
+    text-align: center;
+}
+
+#basket {
+    width: 40px;
+    margin-top: 10px;
+}
