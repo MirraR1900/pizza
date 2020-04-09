@@ -10,3 +10,12 @@ block content
          p(class="descriptionDish")= "Состав: " + val.description
          p(class="weightDush")= "Объем: " + val.volume + " л."
          p(class="priceDish")= "Цена: " + val.price  + " руб" 
+         .addProduct
+          div.quantityProduct
+            div
+              button(class="btnAdd" id="plus") +
+            div(id="inpAddId"+index class="quantity") 1
+            div
+              button(class="btnAdd" id="minus")  -
+          p.boxbtnAddBasket
+            button(class="btnAddBasket") Добавить в корзину  
