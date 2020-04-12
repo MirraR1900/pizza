@@ -18,7 +18,6 @@ span {
 .nav {
     text-align: center;
     height: 60px;
-    /* border: 2px solid magenta; */
 }
 
 .menu {
@@ -37,7 +36,6 @@ a {
 }
 
 .shoppingBasket {
-    /* border: 2px solid magenta; */
     text-align: center;
 }
 

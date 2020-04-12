@@ -1,15 +1,66 @@
 $(function(){
-    $(".quantityProduct").on("click", function(event) {
+    
+    $('.btnAddBasket').on("click", function() {
+        let parent = $(this).parent();
+        let praparent = parent.parent();
+        let grand = praparent.parent();
+        let children = grand.children();
+        let name;
+        let price;
+        let linkImg
+
+        for(let item of children) {
+           
+            if(item.className == "boxImg"){
+                let name = item.children;
+                linkImg = name[0].getAttribute("src");
+            } else 
+                if(item.className == "nameDish") {
+                   name = item.getAttribute("value");
+            } else 
+                if(item.className == "priceDish") {
+                   price =  item.getAttribute("value");
+            } else{}
+        }
+        addProducts(linkImg, name, price);
+    });
+
+    function addProducts(linkImg, name, price) {
+        return $(".order").append(
+            `<div class="cardOrder">
+            <div><img class="orderImg" src=${linkImg} /></div>
+               <div class="boxName">${name}</div>
+               <div>${price}</div>
+               <div class="quantityProduct">
+                 <div>
+                   <button class="btnAdd" id="plus">+</button>
+                 </div>
+                 <div id="inpAddId" class="quantity">1</div>
+                 <div>
+                   <button class="btnAdd" id="minus">-</button>
+                 </div>
+               </div>
+               <div class="delete">
+                 <button id="deleteOrder">&#10006</button>
+               </div>
+               </div>`
+        );
+    };
+
+    $(".order").click (function(event) {
         let target = event.target;
         let btnID;
-
-        if(target.tagName == 'BUTTON'){
+        console.log(target.id);
             btnID = event.target.id;
-            
-            if(btnID === "plus") {
-                let parent = $(target).parent();
-                let praparent = parent.parent();
-                let children = praparent.children();
+            let parent;
+            let praparent;
+            let childre
+
+            switch(btnID) {
+                case "plus": 
+                parent = $(target).parent();
+                praparent = parent.parent();
+                children = praparent.children();
                 for(let item of children) {
                     let itemClass = item.className;
                     if(itemClass == "quantity") {
@@ -17,38 +68,34 @@ $(function(){
                         if(+text >= 1 & +text != 10) {
                             let newText = +text + 1;
                             item.innerHTML = newText;
-                        } else {
-                            return
+                        }
+                    }
+                   
+                }
+                break;
+                case "minus":
+                    parent = $(target).parent();
+                    praparent = parent.parent();
+                    children = praparent.children();
+                    for(let item of children) {
+                        let itemClass = item.className;
+                        if(itemClass == "quantity") {
+                            let text = item.textContent;
+                            if(+text > 1) {
+                                let newText = text - 1;
+                                item.innerHTML = newText;
+                            } 
                         }
                        
                     }
-                   
-                }
-            } else if(btnID === "minus") {
-                let parent = $(target).parent();
-                let praparent = parent.parent();
-                let children = praparent.children();
-                for(let item of children) {
-                    let itemClass = item.className;
-                    if(itemClass == "quantity") {
-                        let text = item.textContent;
-                        if(+text > 1) {
-                            let newText = text - 1;
-                            item.innerHTML = newText;
-                        } else {
-                            return
-                        }
-                    }
-                   
-                }
-            } else {
-                alert("error");
+                    break;
+
+                case "deleteOrder":
+                    parent = $(target).parent();
+                    praparent = parent.parent();
+                    console.log(praparent);
+                    praparent.remove();
             }
-        }
     });
 
-    $('.btnAddBasket').on("click", function() {
-        let parent = $(this).parent();
-        console.log(parent);
-    });
 });

@@ -38,37 +38,6 @@
     height: 300px;
 }
 
-.quantityProduct {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    text-align: center;
-    padding: 10px 80px;
-}
-
-/* .quantityProduct div {
-    border: 1px solid red;
-} */
-
-.btnAdd {
-    width: 30px;
-    height: 30px;
-    font-size: 20px;
-    background-color: rgb(255, 255, 255);
-    border: 1px solid rgb(220, 220, 220);
-    border-radius: 10px;
-}
-
-.quantity {
-    /* width: 40px;
-    height: 30px; */
-    /* margin: 0 10px; */
-    font-size: 20px;
-    text-align: center;
-    background-color: rgb(255, 255, 255);
-    border: 1px solid rgb(220, 220, 220);
-
-}
-
 .boxbtnAddBasket {
     text-align: center;
 }

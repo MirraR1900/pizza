@@ -4,20 +4,14 @@ block content
   // (href="../contact") Контакты
   div.boxMenuPizza
     each val, index in pizza
-      .card
+      div(class="card" id=val._id)
         .boxImg
           img(class="pizzaImg" src=val.img alt="")
-        p(class="nameDish")= val.title 
+        p(class="nameDish" value=val.title )= val.title 
         p(class="descriptionDish")= "Состав: " + val.description
         p(class="weightDush")= "Вес: " + val.weight
-        p(class="priceDish")= "Цена: " + val.price  + " руб"
+        p(class="priceDish" value=val.price )= "Цена: " + val.price  + " руб"
         .addProduct
-          div.quantityProduct
-            div
-              button(class="btnAdd" id="plus") +
-            div(id="inpAddId"+index class="quantity") 1
-            div
-              button(class="btnAdd" id="minus")  -
           p.boxbtnAddBasket
             button(class="btnAddBasket" id="addBasket") Добавить в корзину  
 

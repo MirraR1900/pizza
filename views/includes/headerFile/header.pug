@@ -15,5 +15,44 @@ header
             li 
               a(href="") Контакты
         .shoppingBasket
-          img(id="basket" src="../image/shoppingCart.png", alt="")      
+          img(id="basket" src="../image/shoppingCart.png" alt="")      
+.modalWindow
+  .modalContent
+    .boxButton
+      button#closeButton &#10006;
+    .boxContent
+      .order  
+      .form
+        form(action="")
+          fieldset.infoClient
+            label(for="") Имя 
+            br
+            input(type="text")
+            br
+            label(for="") Телефон
+            br
+            input(type="text")
+            br
+            label(for="") Адрес
+            br
+            input(type="text")
+            br
+            label(for="") Подъезд, этаж
+            br
+            input(type="text")    
+          fieldset.pay  
+            p Оплата:
+            ul.list
+              li
+                input(type="checkbox")
+                label(for="") Картой
+              li  
+                input(type="checkbox")
+                label(for="") Наличными
+          fieldset.notes  
+            label(for="") Примечания к заказу
+            br
+            textarea(name="", cols="50", rows="10")
+            br
+            button(type="submit" id="send") Оформить заказ
               
