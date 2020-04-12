@@ -23,6 +23,7 @@ $(function(){
             } else{}
         }
         addProducts(linkImg, name, price);
+        counterProducts();
     });
 
     function addProducts(linkImg, name, price) {
@@ -47,14 +48,14 @@ $(function(){
         );
     };
 
-    $(".order").click (function(event) {
+    $(".order").on("click",function(event) {
         let target = event.target;
         let btnID;
         console.log(target.id);
             btnID = event.target.id;
             let parent;
             let praparent;
-            let childre
+            let children;
 
             switch(btnID) {
                 case "plus": 
@@ -98,4 +99,14 @@ $(function(){
             }
     });
 
+    function counterProducts(){
+        let count = 0;
+        let children = $(".order").children();
+        for(let child of children) {
+            count++;
+            let text = $("#counter").children();
+            let countBasket = text[0];
+            countBasket.innerHTML = count;
+        }
+    }
 });

@@ -5,17 +5,15 @@
     bottom: 0;
     right: 0;
     left: 0;
-    /* border: 2px solid red; */
     background: rgba(0, 0, 0, 0.7);
 }
 
 .modalContent {
     position: absolute;
-    z-index: 3;
+    z-index: 10;
     width: 700px;
     height: auto;
     right: 40px;
-    top: 60px;   
 }
 .boxButton {
     text-align: end;

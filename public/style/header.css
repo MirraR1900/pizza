@@ -36,12 +36,27 @@ a {
 }
 
 .shoppingBasket {
+    position: relative;
     text-align: center;
 }
 
 #basket {
+    position: absolute;
+    z-index: 2;
     width: 40px;
     margin-top: 10px;
+}
+
+#counter {
+    position: absolute;
+    z-index: 4;
+    width: 50px;
+    height: 30px;
+    top: 30px;
+    left: 130px;
+    color: rgb(255, 255, 255);
+    font-size: 25px;
+    text-align: start;
 }
 
 .boxMenuDrinks a {
