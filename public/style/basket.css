@@ -13,11 +13,12 @@
     z-index: 10;
     width: 700px;
     height: auto;
-    right: 40px;
+    right: 140px
+    
 }
 .boxButton {
     text-align: end;
-    padding: 10px;
+    padding: 20px;
 }
 #closeButton {
     width: 40px;

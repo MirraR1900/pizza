@@ -1,18 +1,11 @@
 extends ../main.pug
 
 block content
-  // (href="../contact") Контакты
-  div.boxMenuPizza
-    each val, index in pizza
-      div(class="card" id=val._id)
-        .boxImg
-          img(class="pizzaImg" src=val.img alt="")
-        p(class="nameDish" value=val.title )= val.title 
-        p(class="descriptionDish")= "Состав: " + val.description
-        p(class="weightDush")= "Вес: " + val.weight
-        p(class="priceDish" value=val.price )= "Цена: " + val.price  + " руб"
-        .addProduct
-          p.boxbtnAddBasket
-            button(class="btnAddBasket" id="addBasket") Добавить в корзину  
+  .contentPizza 
+    h2 Пицца
+    +CardsPizza()  
+  .contetnDrinks  
+    h2 Напитки
+    +CardsDrinks()    
 
 

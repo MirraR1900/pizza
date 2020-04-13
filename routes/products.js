@@ -5,17 +5,13 @@ const router = Router();
 
 router.get("/", async (req, res) => {
     const pizza = await Prod.find({});
+    const drink = await Drinks.find({});
 
-    res.render("pages/index.pug",  {title: "Pizza", pizza});
+    res.render("pages/index.pug",  {title: "Pizza", pizza, drink});
 });
 
 router.get("/contact", (req, res) => {
     res.render("pages/contact",  {title: "Contact"});
-});
-
-router.get("/drinks", async (req, res) => {
-    const drink = await Drinks.find({});
-    res.render("pages/drinks",  {title: "Напитки", drink});
 });
 
 router.get("/delivery", (req, res) => {

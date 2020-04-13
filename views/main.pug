@@ -1,3 +1,8 @@
+include mixins/cardsPizza
+include mixins/cardsDrinks
+include mixins/modalBasket
+include mixins/emptyBasket
+
 doctype html
 html(lang='ru')
      head
@@ -7,7 +12,8 @@ html(lang='ru')
        link(rel="stylesheet", href="/style/header.css")
        link(rel="stylesheet", href="/style/page.css")
        link(rel="stylesheet", href="/style/products.css")
-       link(rel="stylesheet", href="/style/basket.css")
+       link(rel="stylesheet", href="../style/basket.css")
+       link(rel="stylesheet", href="../style/emptyBasket.css")
        link(rel="stylesheet", href="/style/footer.css")
        script(src="https://code.jquery.com/jquery-1.12.4.js")
 
