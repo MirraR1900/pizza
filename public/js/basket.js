@@ -5,17 +5,22 @@ $(function() {
         let count = counterProducts();
         if(id == "basket" && count == true) {
             $(".modalWindow ").show();
-        } else {
+        } 
+    });
+
+    $(".shoppingBasket").on("mouseover", function() {
+        let count = counterProducts();
+        if(count == false) {
             $(".content").show();
         }
     });
 
-    $("#closeButton").on("click", function() {
-        $(".modalWindow ").hide();
+    $(".shoppingBasket").on("mouseout", function() {
+        $(".content").hide();
     });
 
-    $("#btnClose").on("click", function() {
-        $(".content").hide();
+    $("#closeButton").on("click", function() {
+        $(".modalWindow ").hide();
     });
 
     function counterProducts(){

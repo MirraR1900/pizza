@@ -11,10 +11,11 @@
 .modalContent {
     position: absolute;
     z-index: 10;
-    width: 700px;
-    height: auto;
-    right: 140px
-    
+    width: 900px;
+    height: 800px;
+    right: 140px;
+    overflow-y: auto;
+    background: rgb(255, 255, 255);
 }
 .boxButton {
     text-align: end;
@@ -24,18 +25,26 @@
     width: 40px;
     height: 40px;
     background-color: rgb(255, 255, 255);
-    border: 1px solid rgb(255, 255, 255);
+    border: 1px solid rgb(220, 220, 220);
     border-radius: 10px;
-    font-size: 20px;
+    font-size: 30px;
 }
 .boxContent {
     background: rgb(255, 255, 255);
 }
 
-.cardOrder {
+.cardOrder, .titleOrder {
     display: grid;
-    grid-template-columns: 1fr 4fr 1fr 2fr 1fr;
+    grid-template-columns: 1fr 3fr 1fr 2fr 1fr 1fr;
     padding: 10px;
+}
+.titleOrder {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr 2fr 1fr 1fr;
+}
+
+.titleOrder div {
+    text-align: center;
 }
 
 .orderImg {
@@ -67,6 +76,10 @@
     background-color: rgb(255, 255, 255);
     border: 1px solid rgb(220, 220, 220);
 
+}
+
+.price, .summa {
+    text-align: center;
 }
 
 .delete {

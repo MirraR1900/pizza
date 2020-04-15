@@ -1,4 +1,11 @@
 $(function(){
+
+    function Product(id, name, quantity, summa) {
+        this.id = id;
+        this.name = name;
+        this.quantity = quantity;
+        this.summa = summa;
+    }
     
     $('.btnAddBasket').on("click", function() {
         let parent = $(this).parent();
@@ -8,11 +15,15 @@ $(function(){
         let name;
         let price;
         let linkImg
+        let id = grand.attr("id");
+        let order = [];
+        let number = 0;
+
 
         for(let item of children) {
            
             if(item.className == "boxImg"){
-                let name = item.children;
+                name = item.children;
                 linkImg = name[0].getAttribute("src");
             } else 
                 if(item.className == "nameDish") {
@@ -31,7 +42,7 @@ $(function(){
             `<div class="cardOrder">
             <div><img class="orderImg" src=${linkImg} /></div>
                <div class="boxName">${name}</div>
-               <div>${price}</div>
+               <div class="price">${price}</div>
                <div class="quantityProduct">
                  <div>
                    <button class="btnAdd" id="plus">+</button>
@@ -41,6 +52,7 @@ $(function(){
                    <button class="btnAdd" id="minus">-</button>
                  </div>
                </div>
+               <div class="summa">${price}</div>
                <div class="delete">
                  <button id="deleteOrder">&#10006</button>
                </div>
@@ -51,7 +63,6 @@ $(function(){
     $(".order").on("click",function(event) {
         let target = event.target;
         let btnID;
-        console.log(target.id);
             btnID = event.target.id;
             let parent;
             let praparent;
@@ -62,39 +73,42 @@ $(function(){
                 parent = $(target).parent();
                 praparent = parent.parent();
                 children = praparent.children();
+                let newTextPlus;
                 for(let item of children) {
                     let itemClass = item.className;
                     if(itemClass == "quantity") {
                         let text = item.textContent;
                         if(+text >= 1 & +text != 10) {
-                            let newText = +text + 1;
-                            item.innerHTML = newText;
+                            newTextPlus = +text + 1;
+                            item.innerHTML = newTextPlus;
                         }
                     }
-                   
                 }
+                getSummaProduct(newTextPlus, plus);
                 break;
                 case "minus":
                     parent = $(target).parent();
                     praparent = parent.parent();
                     children = praparent.children();
+                    let newTextMunus;
                     for(let item of children) {
                         let itemClass = item.className;
                         if(itemClass == "quantity") {
                             let text = item.textContent;
                             if(+text > 1) {
-                                let newText = text - 1;
-                                item.innerHTML = newText;
+                                newTextMunus = text - 1;
+                                item.innerHTML = newTextMunus;
                             } 
                         }
-                       
                     }
+
+                    getSummaProduct(newTextMunus, minus);
                     break;
 
                 case "deleteOrder":
                     parent = $(target).parent();
                     praparent = parent.parent();
-                    console.log(praparent);
+                    deleteProduct();
                     praparent.remove();
             }
     });
@@ -109,4 +123,25 @@ $(function(){
             countBasket.innerHTML = count;
         }
     }
+
+    function deleteProduct(){
+        let children = $(".order").children();
+        for(let child of children) {
+            let text = $("#counter").children();
+            let countBasket = text[0];
+            if(countBasket.id == "count") {
+                let countCurrent = countBasket.innerHTML;
+                let countNew = countCurrent - 1;
+                countBasket.innerHTML = countNew;
+                if(children.length-1 == 0) {
+                    $(".modalWindow ").hide();
+                }
+                break;
+            }
+        }
+    };
+
+    function getSummaProduct(count) {
+ 
+    };
 });

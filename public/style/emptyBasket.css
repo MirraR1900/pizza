@@ -9,20 +9,6 @@
     background: rgb(255, 255, 255);
 }
 
-.boxButtonClose {
-    height: 50px;
-    text-align: end;
-}
-
-#btnClose {
-    width: 40px;
-    height: 40px;
-    color: rgb(0, 0, 0);
-    font-size: 20px;
-    border: none;
-    background: none;
-}
-
 .boxText p {
     font-size: 20px;
     text-align: center;
