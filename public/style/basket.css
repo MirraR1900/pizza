@@ -92,6 +92,18 @@
     background: none;
 }
 
+.boxOrderPrice {
+    /* border: 1px solid red; */
+    text-align: center;
+}
+
+.boxOrderPrice p {
+    display: inline-block;
+    padding: 0 10px;
+    /* border: 2px solid blue; */
+    font-size: 20px;
+}
+
 form {
     text-align: center;
 }

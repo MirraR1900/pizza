@@ -1,11 +1,12 @@
 $(function(){
-    
+       
     $('.btnAddBasket').on("click", function() {
+        
         let parent = $(this).parent();
         let praparent = parent.parent();
         let grand = praparent.parent();
         let children = grand.children();
-              
+             
         getAttributesBlock(children);
         counterProducts();
     });
@@ -94,10 +95,12 @@ $(function(){
        if(idBtn == "plus") {
         let summa = value * priceValue;
         summaProduct.text(summa);
+        orderPrice();
 
        } else if(idBtn == "minus") {      
         let summa = summaValue - priceValue;
         summaProduct.text(summa);
+        orderPrice();
        } 
     };
 
@@ -138,6 +141,7 @@ $(function(){
             let countBasket = text[0];
             countBasket.innerHTML = count;
         }
+        orderPrice();
     }
 
     function deleteblockProduct(){
@@ -155,5 +159,27 @@ $(function(){
                 break;
             }
         }
+    };
+
+    function orderPrice() {
+        let sum = 0;
+        let arr = [];
+        let children = $(".order").children();
+        for(let item of children) {
+          
+            let itemChildren = $(item).children();
+            
+              for(let child of itemChildren) {
+                  if(child.className == "summa") {
+                      let text = child.textContent;
+                    arr.push(text);
+                  }
+              }    
+        }
+
+        for(let i=0; i < arr.length; i++) {
+            sum += +arr[i];
+        }
+        $(".summaElement").text(sum);
     };
 });

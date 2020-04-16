@@ -1,7 +1,7 @@
 mixin CardsDrinks()
   div(class="boxMenuDrinks" id="drinks")
     each val, index  in drink
-      .card
+      div(class="card" id=val._id)
          .boxImg
            img(class="drinkImg" src=val.img alt="")
          p(class="nameDish" value=val.title)= val.title 
