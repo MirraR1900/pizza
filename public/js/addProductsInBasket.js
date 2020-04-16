@@ -62,21 +62,44 @@ $(function(){
             switch(btnID) {
 
                 case "plus": 
-                    buttonsCounter(target);
+                    let valuePlus = buttonsCounter(target);
+                    getSummaProduct(target, valuePlus);
                 break;
 
                 case "minus":
                     buttonsCounter(target);
+                    getSummaProduct(target);
                 break;
 
                 case "deleteOrder":
                     parent = $(target).parent();
                     praparent = parent.parent();
 
-                    deleteProduct();
+                    deleteblockProduct(); 
                     praparent.remove();
             }
     });
+
+    function getSummaProduct(target, value) {
+        
+       let parent = $(target).parent();
+       let praparent =  parent.parent();
+       
+       let price = praparent.siblings(".price");
+       let summaProduct = praparent.siblings(".summa");
+       let idBtn = target.id;
+       let priceValue = price.text();
+       let summaValue = summaProduct.text();
+
+       if(idBtn == "plus") {
+        let summa = value * priceValue;
+        summaProduct.text(summa);
+
+       } else if(idBtn == "minus") {      
+        let summa = summaValue - priceValue;
+        summaProduct.text(summa);
+       } 
+    };
 
     function buttonsCounter(target) {
         let parent = $(target).parent();
@@ -93,10 +116,14 @@ $(function(){
                     if(target.id == "plus" & +text >= 1 & +text != 10) {
                         newText = +text + 1;
                         item.innerHTML = newText;
+                        console.log(+text + 1);
+                        return (+text + 1);
                                 
                     } else if(target.id  == "minus" & +text > 1){
                         newText = +text - 1;
                         item.innerHTML = newText;
+                        console.log(+text - 1);
+                        return (+text - 1);
                     } else{}
             }
         }
@@ -105,7 +132,7 @@ $(function(){
     function counterProducts(){
         let count = 0;
         let children = $(".order").children();
-        for(let child of children) {
+        for(let item of children) {
             count++;
             let text = $("#counter").children();
             let countBasket = text[0];
@@ -113,9 +140,9 @@ $(function(){
         }
     }
 
-    function deleteProduct(){
+    function deleteblockProduct(){
         let children = $(".order").children();
-        for(let child of children) {
+        for(let item of children) {
             let text = $("#counter").children();
             let countBasket = text[0];
             if(countBasket.id == "count") {
