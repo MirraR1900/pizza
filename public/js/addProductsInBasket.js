@@ -1,24 +1,19 @@
 $(function(){
-
-    function Product(id, name, quantity, summa) {
-        this.id = id;
-        this.name = name;
-        this.quantity = quantity;
-        this.summa = summa;
-    }
     
     $('.btnAddBasket').on("click", function() {
         let parent = $(this).parent();
         let praparent = parent.parent();
         let grand = praparent.parent();
         let children = grand.children();
+              
+        getAttributesBlock(children);
+        counterProducts();
+    });
+
+    function getAttributesBlock(children) {
         let name;
         let price;
         let linkImg
-        let id = grand.attr("id");
-        let order = [];
-        let number = 0;
-
 
         for(let item of children) {
            
@@ -33,11 +28,11 @@ $(function(){
                    price =  item.getAttribute("value");
             } else{}
         }
-        addProducts(linkImg, name, price);
-        counterProducts();
-    });
 
-    function addProducts(linkImg, name, price) {
+        blockProduct(linkImg, name, price);
+    };
+
+    function blockProduct(linkImg, name, price) {
         return $(".order").append(
             `<div class="cardOrder">
             <div><img class="orderImg" src=${linkImg} /></div>
@@ -62,57 +57,51 @@ $(function(){
 
     $(".order").on("click",function(event) {
         let target = event.target;
-        let btnID;
-            btnID = event.target.id;
-            let parent;
-            let praparent;
-            let children;
+        let btnID = event.target.id;
 
             switch(btnID) {
-                case "plus": 
-                parent = $(target).parent();
-                praparent = parent.parent();
-                children = praparent.children();
-                let newTextPlus;
-                for(let item of children) {
-                    let itemClass = item.className;
-                    if(itemClass == "quantity") {
-                        let text = item.textContent;
-                        if(+text >= 1 & +text != 10) {
-                            newTextPlus = +text + 1;
-                            item.innerHTML = newTextPlus;
-                        }
-                    }
-                }
-                getSummaProduct(newTextPlus, plus);
-                break;
-                case "minus":
-                    parent = $(target).parent();
-                    praparent = parent.parent();
-                    children = praparent.children();
-                    let newTextMunus;
-                    for(let item of children) {
-                        let itemClass = item.className;
-                        if(itemClass == "quantity") {
-                            let text = item.textContent;
-                            if(+text > 1) {
-                                newTextMunus = text - 1;
-                                item.innerHTML = newTextMunus;
-                            } 
-                        }
-                    }
 
-                    getSummaProduct(newTextMunus, minus);
-                    break;
+                case "plus": 
+                    buttonsCounter(target);
+                break;
+
+                case "minus":
+                    buttonsCounter(target);
+                break;
 
                 case "deleteOrder":
                     parent = $(target).parent();
                     praparent = parent.parent();
+
                     deleteProduct();
                     praparent.remove();
             }
     });
 
+    function buttonsCounter(target) {
+        let parent = $(target).parent();
+        let praparent =  parent.parent();
+        let children = praparent.children();
+        let newText;            
+               
+        for(let item of children) {
+            let itemClass = item.className;
+
+            if(itemClass == "quantity") {
+                let text = item.textContent;
+
+                    if(target.id == "plus" & +text >= 1 & +text != 10) {
+                        newText = +text + 1;
+                        item.innerHTML = newText;
+                                
+                    } else if(target.id  == "minus" & +text > 1){
+                        newText = +text - 1;
+                        item.innerHTML = newText;
+                    } else{}
+            }
+        }
+    };
+        
     function counterProducts(){
         let count = 0;
         let children = $(".order").children();
@@ -139,9 +128,5 @@ $(function(){
                 break;
             }
         }
-    };
-
-    function getSummaProduct(count) {
- 
     };
 });
