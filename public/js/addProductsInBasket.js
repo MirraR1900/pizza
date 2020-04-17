@@ -1,4 +1,6 @@
 $(function(){
+
+    let arrayElement = []; 
        
     $('.btnAddBasket').on("click", function() {
         
@@ -6,12 +8,33 @@ $(function(){
         let praparent = parent.parent();
         let grand = praparent.parent();
         let children = grand.children();
-             
-        getAttributesBlock(children);
-        counterProducts();
+        let id = grand.attr("id");
+        let flag = uniqueItem(id);
+
+        if(flag != true) {
+            arrayElement.push(id);
+            getAttributesBlock(children);
+            counterProducts();
+        }
     });
 
+    function uniqueItem(id) {
+
+        let length = arrayElement.length;
+
+         if(length == 0) {
+                arrayElement.push(id);
+            } else {
+                for(let i = 0; i < arrayElement.length; i++) {
+                    if(arrayElement[i] == id) { 
+                        return true;  
+                    }
+                }
+            }
+    };
+
     function getAttributesBlock(children) {
+
         let name;
         let price;
         let linkImg
@@ -57,6 +80,7 @@ $(function(){
     };
 
     $(".order").on("click",function(event) {
+
         let target = event.target;
         let btnID = event.target.id;
 
@@ -78,6 +102,7 @@ $(function(){
 
                     deleteblockProduct(); 
                     praparent.remove();
+                    orderPrice();
             }
     });
 
@@ -105,6 +130,7 @@ $(function(){
     };
 
     function buttonsCounter(target) {
+
         let parent = $(target).parent();
         let praparent =  parent.parent();
         let children = praparent.children();
@@ -133,6 +159,7 @@ $(function(){
     };
         
     function counterProducts(){
+
         let count = 0;
         let children = $(".order").children();
         for(let item of children) {
@@ -145,6 +172,7 @@ $(function(){
     }
 
     function deleteblockProduct(){
+
         let children = $(".order").children();
         for(let item of children) {
             let text = $("#counter").children();
@@ -162,6 +190,7 @@ $(function(){
     };
 
     function orderPrice() {
+
         let sum = 0;
         let arr = [];
         let children = $(".order").children();
