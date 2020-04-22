@@ -14,36 +14,40 @@ mixin Basket()
         .boxOrderPrice
           p.textElement Сумма заказа: 
           p.summaElement  
+          p.currency руб. 
         .form
-          form(action="")
-            fieldset.infoClient
-              label(for="") Имя 
-              br
-              input(type="text")
-              br
-              label(for="") Телефон
-              br
-              input(type="text")
-              br
-              label(for="") Адрес
-              br
-              input(type="text")
-              br
-              label(for="") Подъезд, этаж
-              br
-              input(type="text")    
-            fieldset.pay  
-              p Оплата:
-              ul.list
-                li
-                  input(type="checkbox")
-                  label(for="") Картой
-                li  
-                  input(type="checkbox")
-                  label(for="") Наличными
-            fieldset.notes  
-                label(for="") Примечания к заказу
-                br
-                textarea(name="", cols="50", rows="10")
-                br
-                button(type="submit" id="send") Оформить заказ
+          .infoClient
+            label(for="") Имя 
+            br
+            input(type="text" name="name")
+            br
+            label(for="") Телефон
+            br
+            input(type="text" name="phone")
+            br
+            label(for="") Адрес
+            br
+            input(type="text" name="address")
+            br
+            label(for="") Подъезд, этаж
+            br
+            input(type="text" name="porch")    
+          .pay  
+            p Оплата:
+            ul.list
+              li
+                input(class="radio" type="radio" name="pay" value="Картой")
+                label(for="") Картой
+              li  
+                input(class="radio" type="radio" name="pay" value="Наличными")
+                label(for="") Наличными
+          .notes  
+            label(for="") Примечания к заказу
+            br
+            textarea(name="notes", cols="50", rows="10")
+          .boxOrderPrice
+            p.textElement Заказ на сумму: 
+            p(class="summaElement orderPrice")
+            p.currency руб. 
+            br
+            button(id="send") Оформить заказ  

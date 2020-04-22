@@ -104,7 +104,7 @@
     font-size: 20px;
 }
 
-form {
+.form {
     text-align: center;
 }
 fieldset {
@@ -132,10 +132,11 @@ fieldset {
 }
 
 .list {
-    text-align: start;
-    width: 300px;
     list-style-type: none;
-    margin: 10px 40px;
+}
+.list li {
+    display: inline-block;
+    margin: 10px 20px;
 }
 
 #send {
@@ -144,4 +145,12 @@ fieldset {
     border: 1px solid rgb(0, 0, 0);
     border-radius: 10px;
     margin: 20px;
+}
+
+#send2 {
+    width: 250px;
+    height: 30px;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 10px;
+    margin-bottom: 450px;
 }

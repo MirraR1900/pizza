@@ -145,13 +145,11 @@ $(function(){
                     if(target.id == "plus" & +text >= 1 & +text != 10) {
                         newText = +text + 1;
                         item.innerHTML = newText;
-                        console.log(+text + 1);
                         return (+text + 1);
                                 
                     } else if(target.id  == "minus" & +text > 1){
                         newText = +text - 1;
                         item.innerHTML = newText;
-                        console.log(+text - 1);
                         return (+text - 1);
                     } else{}
             }
@@ -211,4 +209,26 @@ $(function(){
         }
         $(".summaElement").text(sum);
     };
+
+
+    $(".list").on("click", function(event) {
+        let target = event.target;    
+        if(target.className == "radio") {
+            // console.log(target);
+            $(target).attr("checked","checked");
+            let pay = $(target).val();
+            // console.log(pay);
+        } 
+        deleteAttribute(target);
+
+    });
+
+    function deleteAttribute(target) {
+        let radioButtons = $(".radio");
+        for(let i = 0; i < radioButtons.length; i++) {
+            if(radioButtons[i] != target)
+                $(radioButtons[i]).removeAttr("checked");            
+        }
+    };
+
 });

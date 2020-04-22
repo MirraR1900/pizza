@@ -1,11 +1,13 @@
 extends ../main.pug
 
 block content
+  +Basket()
+  +EmptyBasket() 
   .contentPizza 
     h2 Пицца
     +CardsPizza()  
   .contetnDrinks  
     h2 Напитки
     +CardsDrinks()    
-
+ 
 

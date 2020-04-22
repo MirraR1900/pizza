@@ -1,6 +1,7 @@
 const {Router} = require("express");
-const Prod = require("../models/productsList");
+const Prod = require("../models/pizzaList");
 const Drinks = require("../models/drinksList");
+const Order = require("../models/order");
 const router = Router();
 
 router.get("/", async (req, res) => {
@@ -41,8 +42,24 @@ router.post('/contact', async (req, res) => {
     });
     await drink.save();
 
-    res.redirect("/drinks");
+    res.redirect("/");
 });
 
+
+router.post('/index', async (req, res) => {
+    const order = new Order({
+        name: req.body.name,
+        phone:  req.body.phone,
+        address: req.body.address,
+        porch: req.body.porch,
+        pay: req.body.pay,
+        notes: req.body.notes,
+        summa: req.body.summa,
+        arrayOrder: req.body.arrayOrder
+    });
+    await order.save();        
+        // res.end();
+        // res.json();
+    });
 
 module.exports = router;
