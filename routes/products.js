@@ -3,6 +3,7 @@ const Prod = require("../models/pizzaList");
 const Drinks = require("../models/drinksList");
 const Order = require("../models/order");
 const router = Router();
+const getDateTimeOrder = require("../responseData/getDateTimeOrder");
 
 router.get("/", async (req, res) => {
     const pizza = await Prod.find({});
@@ -55,11 +56,15 @@ router.post('/index', async (req, res) => {
         pay: req.body.pay,
         notes: req.body.notes,
         summa: req.body.summa,
-        arrayOrder: req.body.arrayOrder
+        arrayOrder: req.body.arrayOrder,
+        date: getDateTimeOrder.getDate(),
+        time: getDateTimeOrder.getTime()
     });
-    await order.save();        
-        // res.end();
-        // res.json();
+    await order.save();
+    let time =  getDateTimeOrder.getTime();       
+        // res.end();      
+    // res.json("Answer Server");
+    res.send(time);
     });
 
 module.exports = router;

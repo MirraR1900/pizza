@@ -29,6 +29,14 @@ const order = new Schema({
     arrayOrder: {
         type: Array,
         required: true
+    },
+    date: {
+        type: String,
+        required: true
+    },
+    time: {
+        type: String,
+        required: true
     }
 },
 {collection : 'orders'}

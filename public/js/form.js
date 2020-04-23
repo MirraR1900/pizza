@@ -35,14 +35,15 @@ $(function() {
             url: '/index',
             data: order,
             success: function (resp) {
-                console.log(resp);
-                console.log("text");
+                getAnswerServer(resp)
+                // console.log(resp);
             },
             error: function (err, str) {
                 console.log('Возникла ошибка: ' + err);
             }
         });
         $(".modalWindow ").hide();
+        // window.location.reload();
     });
 
     function getOrder() {
@@ -94,4 +95,14 @@ $(function() {
     function getSummaOrder() {
         summa = $(".orderPrice").text();
     };
+
+    function getAnswerServer(time) {
+        $(".modalWindow ").hide();
+        $(".modalWindowOrderStatus").show();
+        $(".time").text(time)
+    }
+
+    $("#btnOrderStatus").on("click", function() {
+        $(".modalWindowOrderStatus").hide();
+    });
 });
