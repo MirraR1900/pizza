@@ -154,3 +154,13 @@ fieldset {
     border-radius: 10px;
     margin-bottom: 450px;
 }
+
+span {
+    color: rgb(255, 0, 0);
+    font-size: 14px;
+}
+
+.informationField{
+    font-size: 14px;
+    padding: 20px 0;
+}

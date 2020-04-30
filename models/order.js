@@ -1,8 +1,7 @@
 const {Schema, model} = require("mongoose");
 const order = new Schema({
     name: {
-        type: String,
-        required: true
+        type: String
     },
     phone: {
         type: String,

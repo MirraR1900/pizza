@@ -21,11 +21,13 @@ mixin Basket()
             br
             input(type="text" name="name")
             br
-            label(for="") Телефон
+            label(for="") Телефон 
+            span *
             br
-            input(type="text" name="phone")
+            input(type="phone" name="phone")
             br
             label(for="") Адрес
+            span *
             br
             input(type="text" name="address")
             br
@@ -33,7 +35,8 @@ mixin Basket()
             br
             input(type="text" name="porch")    
           .pay  
-            p Оплата:
+            p Оплата
+              span *
             ul.list
               li
                 input(class="radio" type="radio" name="pay" value="Картой")
@@ -51,3 +54,5 @@ mixin Basket()
             p.currency руб. 
             br
             button(id="send") Оформить заказ  
+
+          p.informationField Поля помеченные <span>*</span> обязательны к заполнению

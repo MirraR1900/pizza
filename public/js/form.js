@@ -9,7 +9,7 @@ $(function() {
     let notes;
     let summa;
     let orderMap = [];
-
+      
     function Order(name, phone, address, porch, pay, notes, summa, arrayOrder) {
         this.name = name;
         this.phone = phone;
@@ -36,14 +36,13 @@ $(function() {
             data: order,
             success: function (resp) {
                 getAnswerServer(resp)
-                // console.log(resp);
             },
             error: function (err, str) {
                 console.log('Возникла ошибка: ' + err);
             }
         });
+
         $(".modalWindow ").hide();
-        // window.location.reload();
     });
 
     function getOrder() {
@@ -65,6 +64,7 @@ $(function() {
                         quantity = child.textContent;
                     }
                 }
+                
                 let dish = nameDish + ": " + quantity;
                 orderMap.push(dish);
             }
@@ -84,7 +84,9 @@ $(function() {
             let a= $(radio[i]).attr("checked");
             if(a == "checked") {
                 pay = $(radio[i]).val();
-            }  
+            }  else{ 
+                $(".pay").css("border", "1px solid rgb(255, 0, 0)")
+            }
         }
     };
     
@@ -99,10 +101,11 @@ $(function() {
     function getAnswerServer(time) {
         $(".modalWindow ").hide();
         $(".modalWindowOrderStatus").show();
-        $(".time").text(time)
+        $(".time").text(time);
     }
 
     $("#btnOrderStatus").on("click", function() {
         $(".modalWindowOrderStatus").hide();
+        window.location.reload();
     });
 });

@@ -14,6 +14,7 @@ app.use(express.urlencoded({extended: true}));
 
 app.use(prodRouters)
 
+
 async function start() {
     try{
         await  mongoose.connect("mongodb://localhost:27017/products", {
