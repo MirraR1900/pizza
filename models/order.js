@@ -36,6 +36,9 @@ const order = new Schema({
     time: {
         type: String,
         required: true
+    },
+    numberCafe: {
+        type: String
     }
 },
 {collection : 'orders'}

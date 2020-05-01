@@ -2,25 +2,21 @@ extends ../main.pug
 
 block content
    form(action="/contact", method="post")  
-    label Title 
+    label firstname 
     br
-    input(type="text", name="title") 
+    input(type="text", name="firstname") 
     br
-    label description
+    label surname
     br
-    input(type="text", name="description") 
+    input(type="text", name="surname") 
     br
-    label price
+    label deliveryMethod
     br
-    input(type="text", name="price") 
+    input(type="text", name="deliveryMethod") 
     br
-    label weight
+    label paymentTerminal
     br
-    input(type="text", name="weight") 
-    br
-    label img
-    br
-    input(type="text", name="img") 
+    input(type="text", name="paymentTerminal")  
     br
     br
     button(type="submit" class="btn") Create

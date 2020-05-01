@@ -27,7 +27,7 @@ $(function(){
     phone.on("blur", function() {
         let value = $("input[name='phone']").val();
 
-        if(value.length == 0) {
+        if(value.length == 0 | value.length > 16) {
             $(this).css(borderError);
         } else {
             fullPhone = true;
@@ -40,8 +40,8 @@ $(function(){
 
     address.on("blur", function(){
         let value = $(this).val();
-        let strAddress = value.match(/[0-9А-Яа-я-//]/g);
-
+        let strAddress = value.match(/[А-Яа-яЁе]+,\d+\/\d+|[А-Яа-яЁе]+,\d+/g);
+        
         if(strAddress == null) {
             $(this).css(borderError);
         } else {
@@ -54,7 +54,7 @@ $(function(){
 
     porch.on("blur", function(){
         let value = $(this).val();
-        let strPorch = value.match(/[0-9]/g);
+        let strPorch = value.match(/\d+, \d+|\d+,\d+/g);
 
         if(strPorch == null) {
             $(this).css(borderError);

@@ -120,6 +120,7 @@ fieldset {
     height: 40px;
     background: none;
     border: 2px solid rgb(211, 211, 211);
+    text-align: center;
 }
 
 .pay p {
