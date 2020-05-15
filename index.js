@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const prodRouters = require("./routes/products")
+const mysql = require("mysql2");
+const prodRouters = require("./routes/products");
 
 const PORT = process.env.PORT || 3000;
 
@@ -30,4 +31,21 @@ async function start() {
     }
 }
 
+async function startDBMySQL() {
+    try{
+        await mysql.createConnection({
+            host: "localhost",
+            user: "root",
+            database: "usersdb",
+            password: "..."
+        })
+        app.listen(PORT, () => {
+            console.log("DB MySQl start...");
+        });
+    } catch (e) {
+        console.log(e);
+    }
+}
+
 start();
+startDBMySQL();
