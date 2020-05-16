@@ -1,10 +1,13 @@
 # pizza
 
+[View website](https://pizza-cafe.herokuapp.com/)
+
 ## Front-end
 - Pug
 - CSS
 
 ## Back-end
 - Node.js
-- MongoDB
+- Express
+- MongoDB (Cloud DB)
  
