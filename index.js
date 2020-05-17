@@ -1,6 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const mysql = require("mysql2");
+const { Client } = require('pg');
 const prodRouters = require("./routes/products");
 
 const PORT = process.env.PORT || 3000;
@@ -13,10 +13,9 @@ app.set("view engine", "pug");
 
 app.use(express.urlencoded({extended: true}));
 
-app.use(prodRouters)
+app.use(prodRouters);
 
-
-async function start() {
+async function startMongoDB() {
     try{
         await  mongoose.connect("mongodb://localhost:27017/products", {
             useNewUrlParser: true,
@@ -31,21 +30,25 @@ async function start() {
     }
 }
 
-async function startDBMySQL() {
+async function startPostgreSQL() {
     try{
-        await mysql.createConnection({
-            host: "localhost",
-            user: "root",
-            database: "usersdb",
-            password: "..."
-        })
-        app.listen(PORT, () => {
-            console.log("DB MySQl start...");
+        const client = new Client({
+            user: 'postgres',
+            host: 'localhost',
+            database: 'test1',
+            password: '123456',
+            port: 5432,
         });
+        await client.connect();
+        console.log("Server listen...");
+        const res = await client.query('SELECT * FROM users');
+        console.log(res.rows);
+        await client.end();
+        
     } catch (e) {
         console.log(e);
     }
 }
 
-start();
-startDBMySQL();
+startMongoDB();
+startPostgreSQL();

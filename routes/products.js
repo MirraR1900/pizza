@@ -63,8 +63,8 @@ router.post('/contact', async (req, res) => {
 
 
 router.post('/index', async (req, res) => {
-    validationInfoClient.phoneClient(req.body.phone);
-    validationInfoClient.addressClient(req.body.address);
+    // validationInfoClient.phoneClient(req.body.phone);
+    // validationInfoClient.addressClient(req.body.address);
     const order = new Order({
         name: req.body.name,
         phone:  req.body.phone,
@@ -73,16 +73,16 @@ router.post('/index', async (req, res) => {
         pay: req.body.pay,
         notes: req.body.notes,
         summa: req.body.summa,
-        arrayOrder: req.body.arrayOrder,
-        date: getDateTimeOrder.getDate(),
-        time: getDateTimeOrder.getTime(),
+        // arrayOrder: req.body.arrayOrder,
+        // date: getDateTimeOrder.getDate(),
+        // time: getDateTimeOrder.getTime(),
         // numberCafe: 
     });
     await order.save();
-    let time =  getDateTimeOrder.getTime();      
-    distanceCalculation.randomNumber(); 
-    const couriersList = await Couriers.find({"paymentTerminal":"да"});
-    courierChoice.getListCouriers(couriersList);
+    // let time =  getDateTimeOrder.getTime();      
+    // distanceCalculation.randomNumber(); 
+    // const couriersList = await Couriers.find({"paymentTerminal":"да"});
+    // courierChoice.getListCouriers(couriersList);
         // res.end();      
     // res.json("Answer Server");
     res.send(time);

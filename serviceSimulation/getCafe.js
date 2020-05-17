@@ -17,8 +17,8 @@ let random = Math.floor(Math.random() * 10);
 module.exports.setCafe = function() {
     for(let i = 0; i < cafeList.length; i++) {
         if(i == random)
-        console.log("index " + cafeList[i]);
+        // console.log("index " + cafeList[i]);
     }
 }
 
-setCafe();
+// setCafe();

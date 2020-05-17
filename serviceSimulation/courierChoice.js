@@ -24,11 +24,11 @@ function courierDeliveryTime (courier, distance) {
     if(time < 1) {
         time *= 60;
     }
-    console.log("time: " + Math.floor(time));
+    // console.log("time: " + Math.floor(time));
 }
 
 module.exports.getListCouriers = function(couriers) {
     // console.log(couriers);
 }
 
-deliveryChoice(distance);
+// deliveryChoice(distance);
