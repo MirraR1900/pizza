@@ -31,7 +31,7 @@ $(function(){
                     }
                 }
             }
-    };
+    }
 
     function getAttributesBlock(children) {
 
@@ -50,11 +50,13 @@ $(function(){
             } else 
                 if(item.className == "priceDish") {
                    price =  item.getAttribute("value");
-            } else{}
+            } else{
+                console.log("...");
+            }
         }
 
         blockProduct(linkImg, name, price);
-    };
+    }
 
     function blockProduct(linkImg, name, price) {
         return $(".order").append(
@@ -77,7 +79,7 @@ $(function(){
                </div>
                </div>`
         );
-    };
+    }
 
     $(".order").on("click",function(event) {
 
@@ -127,7 +129,7 @@ $(function(){
         summaProduct.text(summa);
         orderPrice();
        } 
-    };
+    }
 
     function buttonsCounter(target) {
 
@@ -151,10 +153,12 @@ $(function(){
                         newText = +text - 1;
                         item.innerHTML = newText;
                         return (+text - 1);
-                    } else{}
+                    } else{
+                        console.log("...");
+                    }
             }
         }
-    };
+    }
         
     function counterProducts(){
 
@@ -185,7 +189,7 @@ $(function(){
                 break;
             }
         }
-    };
+    }
 
     function orderPrice() {
 
@@ -208,16 +212,14 @@ $(function(){
             sum += +arr[i];
         }
         $(".summaElement").text(sum);
-    };
+    }
 
 
     $(".list").on("click", function(event) {
         let target = event.target;    
         if(target.className == "radio") {
-            // console.log(target);
             $(target).attr("checked","checked");
-            let pay = $(target).val();
-            // console.log(pay);
+            $(target).val();
         } 
         deleteAttribute(target);
 
@@ -229,6 +231,6 @@ $(function(){
             if(radioButtons[i] != target)
                 $(radioButtons[i]).removeAttr("checked");            
         }
-    };
+    }
 
 });

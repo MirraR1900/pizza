@@ -15,7 +15,6 @@ router.get("/", async (req, res) => {
     const drink = await Drinks.find({});
 
     res.render("pages/index.pug",  {title: "Pizza", pizza, drink});
-    // console.log(pizza);
 });
 
 router.get("/contact", (req, res) => {
@@ -63,8 +62,8 @@ router.post('/contact', async (req, res) => {
 
 
 router.post('/index', async (req, res) => {
-    // validationInfoClient.phoneClient(req.body.phone);
-    // validationInfoClient.addressClient(req.body.address);
+    validationInfoClient.phoneClient(req.body.phone);
+    validationInfoClient.addressClient(req.body.address);
     const order = new Order({
         name: req.body.name,
         phone:  req.body.phone,
@@ -73,16 +72,15 @@ router.post('/index', async (req, res) => {
         pay: req.body.pay,
         notes: req.body.notes,
         summa: req.body.summa,
-        // arrayOrder: req.body.arrayOrder,
-        // date: getDateTimeOrder.getDate(),
-        // time: getDateTimeOrder.getTime(),
-        // numberCafe: 
+        arrayOrder: req.body.arrayOrder,
+        date: getDateTimeOrder.getDate(),
+        time: getDateTimeOrder.getTime(),
     });
     await order.save();
-    // let time =  getDateTimeOrder.getTime();      
-    // distanceCalculation.randomNumber(); 
-    // const couriersList = await Couriers.find({"paymentTerminal":"да"});
-    // courierChoice.getListCouriers(couriersList);
+    let time =  getDateTimeOrder.getTime();      
+    distanceCalculation.randomNumber(); 
+    const couriersList = await Couriers.find({"paymentTerminal":"да"});
+    courierChoice.getListCouriers(couriersList);
         // res.end();      
     // res.json("Answer Server");
     res.send(time);

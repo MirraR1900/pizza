@@ -19,7 +19,7 @@ $(function() {
         this.notes = notes;
         this.summa = summa;
         this.arrayOrder = arrayOrder;
-    };
+    }
     
     $("#send").on("click", function(){
         getOrder();
@@ -69,14 +69,14 @@ $(function() {
                 orderMap.push(dish);
             }
         }
-    };
+    }
     
     function getInfoClient() {
         name = $("input[name='name']").val();
         phone = $("input[name='phone']").val();
         address = $("input[name='address']").val();
         porch = $("input[name='porch']").val();
-    };
+    }
 
     function getPay() {
         let radio = $(".radio");
@@ -88,15 +88,15 @@ $(function() {
                 $(".pay").css("border", "1px solid rgb(255, 0, 0)")
             }
         }
-    };
+    }
     
     function getNotes() {
         notes = $("textarea[name='notes']").val();
-    };
+    }
 
     function getSummaOrder() {
         summa = $(".orderPrice").text();
-    };
+    }
 
     function getAnswerServer(time) {
         $(".modalWindow ").hide();

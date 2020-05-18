@@ -8,14 +8,14 @@ let onCar = 40;
 function deliveryChoice(distance) {
     if(distance < 5) {
         courierDeliveryTime(onFoot, distance)
-        console.log("Курьер пеший " + distance);
+        // console.log("Курьер пеший " + distance);
         
     } else if(distance > 5 & distance < 10) {
         courierDeliveryTime(onBike, distance)
         console.log("Курьер на велосипеде " + distance);
     } else {
         courierDeliveryTime(onCar, distance)
-        console.log("Курьер на авто " + distance);
+        // console.log("Курьер на авто " + distance);
     }
 }
 

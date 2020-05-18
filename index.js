@@ -2,7 +2,6 @@ const express = require("express");
 const mongoose = require("mongoose");
 const { Client } = require('pg');
 const prodRouters = require("./routes/products");
-
 const PORT = process.env.PORT || 3000;
 
 const app = express();
