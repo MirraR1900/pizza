@@ -24,4 +24,4 @@ const schema = new Schema({
 { collection : 'pizza' }
 )
 
-module.exports = model('Prod', schema);
+module.exports = model('Pizza', schema);

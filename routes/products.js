@@ -1,5 +1,6 @@
 const {Router} = require("express");
-const Prod = require("../models/pizzaList");
+const con = require("../connectDB/connectPostgreSQL");
+const Pizza = require("../models/pizzaList");
 const Drinks = require("../models/drinksList");
 const Order = require("../models/order");
 const Couriers = require("../models/couriers");
@@ -11,9 +12,8 @@ const courierChoice = require("../serviceSimulation/courierChoice");
 const distanceCalculation = require("../serviceSimulation/distanceCalculation");
 
 router.get("/", async (req, res) => {
-    const pizza = await Prod.find({});
+    const pizza = await Pizza.find({});
     const drink = await Drinks.find({});
-
     res.render("pages/index.pug",  {title: "Pizza", pizza, drink});
 });
 
@@ -84,6 +84,7 @@ router.post('/index', async (req, res) => {
         // res.end();      
     // res.json("Answer Server");
     res.send(time);
+    con.getUsers();
     });
 
 module.exports = router;
