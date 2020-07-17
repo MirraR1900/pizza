@@ -12,7 +12,7 @@ const drinks = new Schema({
             type: Number,
             required: true
         },
-        volume: {
+        weight: {
             type: Number,
             required: true
         },

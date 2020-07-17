@@ -1,5 +1,4 @@
-include mixins/cardsPizza
-include mixins/cardsDrinks
+include mixins/cards
 include mixins/modalBasket
 include mixins/emptyBasket
 include mixins/orderStatus
@@ -19,8 +18,7 @@ html(lang='ru')
        link(rel="stylesheet", href="/style/footer.css")
        script(src="https://code.jquery.com/jquery-1.12.4.js")
 
-       block variables
-     
+       block variables  
   
      body
         div.wrapper
@@ -33,4 +31,4 @@ html(lang='ru')
             script(src="../js/form.js")      
             script(src="https://cdn.jsdelivr.net/npm/jquery.maskedinput@1.4.1/src/jquery.maskedinput.min.js" type="text/javascript")       
           block footer   
-            include includes/footer
+            include includes/footerFile/footer

@@ -6,9 +6,10 @@ block content
   +OrderStatus()
   .contentPizza 
     h2 Пицца
-    +CardsPizza()  
+    +Cards(pizza, "boxMenuPizza", "pizza", "pizzaImg", "Вес: ", "гр.", "btnAddBasket", "addBasket")  
   .contetnDrinks  
     h2 Напитки
-    +CardsDrinks()    
- 
-
+    +Cards(drink, "boxMenuDrinks", "drinks", "drinkImg", "Объем: ", "л.", "btnAddBasket")    
+  .delivery#delivery
+    .boxMenuDelivery
+      h2 Delivery  
