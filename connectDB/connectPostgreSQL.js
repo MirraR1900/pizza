@@ -7,6 +7,8 @@ const pool = new Pool({
     port: 5432,
 });
 
+module.exports.poolPostgreSQL = pool;
+
 module.exports.connectPostgreSQL = async function () {
     try{
         await pool.connect();
@@ -15,11 +17,6 @@ module.exports.connectPostgreSQL = async function () {
     } catch (e) {
         console.log(e);
     }
-}
-
-module.exports.getUsers = async function(){
-    const res = await pool.query('SELECT * FROM workers');
-    console.log(res.rows);
 }
 
 // const res = await pool.query('SELECT * FROM users');

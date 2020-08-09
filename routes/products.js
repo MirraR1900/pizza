@@ -1,5 +1,4 @@
 const {Router} = require("express");
-const con = require("../connectDB/connectPostgreSQL");
 const Pizza = require("../models/pizzaList");
 const Drinks = require("../models/drinksList");
 const Order = require("../models/order");
@@ -8,13 +7,15 @@ const router = Router();
 const getDateTimeOrder = require("../responseData/getDateTimeOrder");
 const validationInfoClient = require("../validationClientBackEnd/validationInfoClient");
 const courierChoice = require("../serviceSimulation/courierChoice");
-
+const getObjectProduct = require("../getProducts/getProduct");
+const dataCafe = require("../dataCafe/cafe");
 const distanceCalculation = require("../serviceSimulation/distanceCalculation");
 
 router.get("/", async (req, res) => {
-    const pizza = await Pizza.find({});
-    const drink = await Drinks.find({});
+    const pizza = await getObjectProduct.getProduct(Pizza);
+    const drink = await getObjectProduct.getProduct(Drinks);
     res.render("pages/index.pug",  {title: "Pizza", pizza, drink});
+     //dataCafe.getDataCafe();
 });
 
 router.get("/contact", (req, res) => {
@@ -23,10 +24,6 @@ router.get("/contact", (req, res) => {
 
 router.get("/delivery", (req, res) => {
     res.render("pages/delivery",  {title: "Доставка"});
-});
-
-router.get("/aboutus", (req, res) => {
-    res.render("pages/aboutus",  {title: "О нас"});
 });
 
 router.post('/contact', async (req, res) => {
@@ -60,10 +57,14 @@ router.post('/contact', async (req, res) => {
     res.redirect("/");
 });
 
-
 router.post('/index', async (req, res) => {
+    
     validationInfoClient.phoneClient(req.body.phone);
     validationInfoClient.addressClient(req.body.address);
+
+    let getIdCafe = await dataCafe.getIdCafe();
+    let idCafe = getIdCafe.rows[0].cafeid;
+
     const order = new Order({
         name: req.body.name,
         phone:  req.body.phone,
@@ -75,16 +76,15 @@ router.post('/index', async (req, res) => {
         arrayOrder: req.body.arrayOrder,
         date: getDateTimeOrder.getDate(),
         time: getDateTimeOrder.getTime(),
+        numberCafe: idCafe,
     });
+    
     await order.save();
-    let time =  getDateTimeOrder.getTime();      
+    let time =  getDateTimeOrder.getTime();  
     distanceCalculation.randomNumber(); 
     const couriersList = await Couriers.find({"paymentTerminal":"да"});
     courierChoice.getListCouriers(couriersList);
-        // res.end();      
-    // res.json("Answer Server");
     res.send(time);
-    con.getUsers();
     });
 
 module.exports = router;
