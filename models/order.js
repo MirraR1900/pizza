@@ -38,7 +38,14 @@ const order = new Schema({
         required: true
     },
     numberCafe: {
-        type: String
+        type: String,
+        required: true
+    },
+    cashier: {
+        type: String,
+    },
+    courier: {
+        type: String,   
     }
 },
 {collection : 'orders'}

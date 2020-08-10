@@ -19,18 +19,17 @@ $(function(){
     });
 
     function uniqueItem(id) {
-
         let length = arrayElement.length;
-
-         if(length == 0) {
-                arrayElement.push(id);
-            } else {
-                for(let i = 0; i < arrayElement.length; i++) {
-                    if(arrayElement[i] == id) { 
-                        return true;  
-                    }
+        
+        if(length == 0) {
+            arrayElement.push(id);
+        } else {
+            for(let i = 0; i < arrayElement.length; i++) {
+                if(arrayElement[i] == id) { 
+                    return true;  
                 }
             }
+        }
     }
 
     function getAttributesBlock(children) {
