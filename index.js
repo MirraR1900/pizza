@@ -13,4 +13,4 @@ app.use(express.urlencoded({extended: true}));
 app.use(prodRouters);
 
 connectDb.connectMongoDB(app);
-connection.connectPostgreSQL();
+// connection.connectPostgreSQL();
