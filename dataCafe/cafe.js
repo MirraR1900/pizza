@@ -2,12 +2,11 @@ const pool = require("../connectDB/connectPostgreSQL");
 
 module.exports.getDataCafe = async function(){
     const res = await pool.poolPostgreSQL.query('SELECT * FROM cafe');
-    console.log(res.rows);
 }
 
 module.exports.getIdCafe = async function(){
-     let value = 1;
-     const idCage = await pool.poolPostgreSQL.query('SELECT * FROM cafe WHERE cafeid =' + value);
-     let obj = idCage;
-     return obj;
+     const idCafe = await pool.poolPostgreSQL.query('SELECT * FROM cafe WHERE cafeid =' + 2);
+     let IDcafe = idCafe.rows[0].cafeid;
+     console.log("cafe: " + IDcafe);
+     return IDcafe;
 }

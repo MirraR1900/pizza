@@ -1,5 +1,8 @@
 const {Schema, model} = require("mongoose");
 const couriers = new Schema({
+    _id: {
+        type: String,
+    },
     firstname: {
         type: String,
         required: true

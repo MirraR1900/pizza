@@ -9,4 +9,4 @@
 ## Back-end
 - Node.js
 - Express
-- MongoDB (Cloud DB)
+- MongoDB 

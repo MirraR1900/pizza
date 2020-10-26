@@ -14,12 +14,14 @@ module.exports.connectPostgreSQL = async function () {
         await pool.connect();
         console.log("Server listen...");    
         //await pool.end();    
+        // const res = await pool.query('SELECT * FROM workers');
+        // console.log(res.rows);
     } catch (e) {
         console.log(e);
     }
 }
 
-// const res = await pool.query('SELECT * FROM users');
+// const res = await pool.query('SELECT * FROM cafe');
 // console.log(res.rows);
 // const res2 = await pool.query('SELECT * FROM users WHERE id=1');
 // console.log(res2.rows);

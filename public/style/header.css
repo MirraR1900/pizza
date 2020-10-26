@@ -9,6 +9,10 @@
     background: rgb(0, 0, 0);
     width: 1200px;
 }
+
+.containerHeadFix {
+    position: fixed;
+}
 span {
     color: rgb(255, 255, 255);
 }
@@ -21,14 +25,22 @@ span {
     height: 60px;
 }
 
+.fixedMenu {
+    height: 40px;
+}
+
 .menu {
    font-size: 18px;   
 }
-.menu li {
+.normal {
     display: inline-block;
     list-style-type: none;
     margin: 20px 20px;
     cursor: pointer;
+}
+
+.fixLI {
+    margin: 5px 20px;
 }
 
 a {
@@ -48,6 +60,9 @@ a {
     margin-top: 10px;
 }
 
+.baskedFix {
+    width: 30px !important;
+}
 #counter {
     position: absolute;
     z-index: 4;
@@ -58,6 +73,11 @@ a {
     color: rgb(255, 255, 255);
     font-size: 25px;
     text-align: start;
+}
+
+.countFix {
+    top: 15px !important;
+    font-size: 18px !important;
 }
 
 .boxMenuDrinks a {

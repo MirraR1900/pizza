@@ -27,24 +27,6 @@ function courierDeliveryTime (courier, distance) {
     }
 }
 
-function getIdCourier(array){
-    let random = Math.random() * 10;
-    let number = Math.round(random);
-    let id;
-    console.log("number: " + number);
-    if(number > array.length){
-        number = Math.round(number / 2);
-    }
-
-     for(let i = 0; i < array.length; i++){
-        if(i == number){
-
-            id = array[i];
-        }
-    }
-    return id;
-}
-
 module.exports.getCourier = async function(pay) {
 
     let value = "";
@@ -54,8 +36,8 @@ module.exports.getCourier = async function(pay) {
         value = "нет";
     }
     let getdeliveryChoice = deliveryChoice(distance);
-    const couriersList = await Couriers.find({"paymentTerminal": value, "deliveryMethod" : getdeliveryChoice}, {"_id": 1});
-    let idObj = await getIdCourier(couriersList);
-    let id = idObj._id;
-    return id;    
+    const couriersList = await Couriers.find({"paymentTerminal": value, "deliveryMethod" : getdeliveryChoice});
+    let idCourier = couriersList[0]._id;
+    console.log(idCourier);
+    return idCourier;    
 }

@@ -31,7 +31,6 @@ router.post('/index', async (req, res) => {
     validationInfoClient.addressClient(req.body.address);
 
     let getIdCafe = await dataCafe.getIdCafe();
-    let idCafe = getIdCafe.rows[0].cafeid;
     let id = await courierChoice.getCourier(req.body.pay);
 
     const order = new Order({
@@ -45,14 +44,13 @@ router.post('/index', async (req, res) => {
         arrayOrder: req.body.arrayOrder,
         date: getDateTimeOrder.getDate(),
         time: getDateTimeOrder.getTime(),
-        numberCafe: idCafe,
+        numberCafe: getIdCafe,
         cashier: "",
         courier: id,
     });
     
     await order.save();
-    let time =  getDateTimeOrder.getTime();  
-    distanceCalculation.randomNumber(); 
+    let time =  getDateTimeOrder.waitTime();  
     res.send(time);
     });
 
