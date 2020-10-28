@@ -3,3 +3,6 @@
     margin: 0 auto;
     max-width: 1200px;
 }
+.contentPizz, .contetnDrinks, .delivery {
+    padding-top: 100px;
+}

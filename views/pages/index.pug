@@ -4,15 +4,15 @@ block content
   +Basket()
   +EmptyBasket() 
   +OrderStatus()
-  .contentPizza 
-    h2 Пицца
+  .contentPizza#sectionPizza 
+    h2.sectionName Пицца
     +Cards(pizza, "boxMenuPizza", "pizza", "pizzaImg", "Вес: ", "гр.", "btnAddBasket", "addBasket")  
-  .contetnDrinks  
-    h2 Напитки
+  .contetnDrinks#sectionDrink 
+    h2.sectionName Напитки
     +Cards(drink, "boxMenuDrinks", "drinks", "drinkImg", "Объем: ", "л.", "btnAddBasket")    
   .delivery#delivery
     .boxMenuDelivery
-      h2 Доставка
+      h2.sectionName Доставка
       p Доставим ваш заказ к вам домой, на работу или в офис. Время доставки от 15 минут.  
       p При заказа на сумму от 1000 рублей доставка 
         strong бесплатная. 
