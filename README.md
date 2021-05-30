@@ -1,7 +1,9 @@
 # pizza
 
 [View website](https://pizza-cafe.herokuapp.com/)
+
 Status: In Progress
+
 The project was created with the aim of learning Node.js and for a better understanding of the Back-end using JS.
 The application uses two databases.
 
