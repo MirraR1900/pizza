@@ -1,4 +1,5 @@
 $(function(){
+    
     $("#send").attr("disabled", "disabled");
 
     let name = $("input[name='name']");
@@ -21,7 +22,6 @@ $(function(){
 
     name.on("focus", focusInput);
 
-
     phone.mask("+7(999) 999-9999");
 
     phone.on("blur", function() {
@@ -36,7 +36,6 @@ $(function(){
     });
 
     phone.on("focus", focusInput);
-
 
     address.on("blur", function(){
         let value = $(this).val();

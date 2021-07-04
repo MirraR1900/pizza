@@ -17,9 +17,9 @@ router.get("/", async (req, res) => {
     res.render("pages/index.pug",  {title: "Pizza", pizza, drink});
 });
 
-// router.get("/contact", (req, res) => {
-//     res.render("pages/contact",  {title: "Contact"});
-// });
+router.get("/contact", (req, res) => {
+    res.render("pages/contact",  {title: "Contact"});
+});
 
 router.post('/index', async (req, res) => {
     

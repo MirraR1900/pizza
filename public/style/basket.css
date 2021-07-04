@@ -86,10 +86,11 @@
     text-align: center;
 }
 
-#deleteOrder {
+.deleteOrder {
     font-size: 20px;
     border: none;
     background: none;
+    color: rgb(255, 0, 0);
 }
 
 .boxOrderPrice {

@@ -1,7 +1,7 @@
 mixin Cards(list, classDiv, idDiv, classImg, textWeight, measure, classBtn, idBtn)
   div(class=classDiv id=idDiv)  
     each val, index in list
-      div(class="card" id=val._id)
+      div(class="card" data-id=val._id)
         .boxImg
           img(class=classImg src=val.img alt="")
         p(class="nameDish" value=val.title )= val.title 

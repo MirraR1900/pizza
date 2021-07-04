@@ -1,4 +1,5 @@
 $(function() {
+
     let nameDish;
     let quantity;
     let name;
@@ -10,7 +11,7 @@ $(function() {
     let summa;
     let orderMap = [];
       
-    function Order(name, phone, address, porch, pay, notes, summa, arrayOrder) {
+    function Order(name, phone, address, porch, pay, notes, summa, arrayOrder) {   
         this.name = name;
         this.phone = phone;
         this.address = address;
@@ -21,7 +22,7 @@ $(function() {
         this.arrayOrder = arrayOrder;
     }
     
-    $("#send").on("click", function(){
+    $("#send").on("click", function(){   
         getOrder();
         getInfoClient();
         getPay();
